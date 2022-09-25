@@ -1,0 +1,84 @@
+Algorithm 1: To initialize all the variables/2D arrays and forming classes and functions 
+
+Step 1: Start
+Step 2: Make a class
+        class ResourceManager {
+ Step 2.1: Declare variables 
+           int n
+           int m
+           int avail[m]
+           max[n,m]
+           alloc[n,m]
+           need[n,m]
+           request
+Step 3: Function1
+Step 4: Function2
+Step 5: Function3
+Step 6: Stop
+
+
+
+
+Algorithm 2: For input
+
+Step 1: Start
+Step 2: Make a function input
+        void bankers
+ Step 2.1: int i,j;
+ Step 2.2: INPUT: number of processes
+ Step 2.3: INPUT: number of resources
+ Step 2.4: INPUT: number of resourcesallocated resources for each process
+ Step 2.5: LOOP: for(i=0;i<nop;i++)  
+                                 Process
+                                 for(j=0;j<nor;j++)
+                                       Resource
+ Step 2.6: INPUT: number of resourcesmaximum resources that are needed for each process
+ Step 2.7: LOOP: for(i=0;i<nop;i++)
+                                 Process
+                                 for(j=0;j<nor;j++)            
+                                       Resource
+ Step 2.8: INPUT: currently available resources in the system
+ Step 2.9: LOOP: for(j=0;j<nor;j++)
+                                 Resource
+                                 work[j]=-1;
+                                 for(i=0;i<nop;i++)
+                                      finish[i]=0;
+Step 3: Stop
+
+
+
+
+Algorithm 3: To make method for safe sequence
+ 
+Step 1: Start
+Step 2: Function
+void allocate (int request[m], int i) {
+ if (request > need[i]) 
+ error(); 
+ else while (request[i] > avail)
+ wait(); 
+ avail = avail - request; 
+ alloc[i] = alloc[i] + request;
+ need[i] = need[i] - request;
+ while ( !safeState () ) {
+ <undo the changes to avail, alloc[i], and need[i]>
+ wait ();
+ <redo the changes to avail, alloc[i], and need[i]>
+ } 
+}
+Step 3: Function
+boolean safeState () {
+ boolean work[m] = avail[m]; 
+ boolean finish[n] = false; 
+ while (find i such that finish[i] == false
+ and need[i] <= work) { 
+ work = work + alloc[i]
+ finish[i] = true;
+ }
+ if (finish[i] == true for all i)
+ return true;
+ else
+ return false;
+} 
+Step 4: Stop
+
